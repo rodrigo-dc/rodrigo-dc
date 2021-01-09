@@ -1,0 +1,48 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09",
+    "type": "object",
+    "definitions": {
+        "testObject": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "group": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "string",
+                    "enum": [
+                        "passed",
+                        "failed",
+                        "skipped"
+                    ]
+                },
+                "duration": {
+                    "type": "string",
+                    "format": "duration"
+                }
+            },
+            "required": [
+                "name",
+                "result"
+            ]
+        }
+    },
+    "properties": {
+        "tests": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/testObject"
+            }
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "datetime"
+        }
+    }
+}
